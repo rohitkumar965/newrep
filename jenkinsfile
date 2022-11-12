@@ -1,0 +1,22 @@
+pipeline{
+    agent{
+        node{
+            label 'rohit'
+        }
+    }
+    stages{
+        stage ('stage-1'){
+            input{
+                message "Can we continue"
+                submitter "user1,user2"
+                parameters {
+                    string(name:'username',description:'username given')
+                }
+            }
+            steps{
+                echo "${username} said ok"
+                }
+            }
+        }
+    }
+
